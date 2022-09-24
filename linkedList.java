@@ -57,10 +57,16 @@ class LL {
         index.next = newNode;
     }
     
-    public int pop(){
+    public int pop(boolean first){
         if(size == 1){
             int temp = head.data;
             head = null;
+            size--;
+            return temp;
+        }
+        if(first){
+            int temp = head.data;
+            head = head.next;
             size--;
             return temp;
         }
@@ -135,7 +141,14 @@ class LL {
                         System.out.println("Linked list is empty");
                         break;
                     }
-                    System.out.println("Popped : " + ll.pop());
+                    System.out.println("Popped : " + ll.pop(false));
+                    break;
+                case 5:
+                    if(ll.head == null){
+                        System.out.println("Linked list is empty");
+                        break;
+                    }
+                    System.out.println("Popped : " + ll.pop(true));
                     break;
                 case 8:
                     ll.printLL();
