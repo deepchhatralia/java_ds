@@ -2,20 +2,28 @@ import java.util.*;
 
 class LL {
     public Node head = null;
+    public int size = 0;
     
     class Node {
         int data;
         Node next;
         Node(int data){
+            size++;
             this.data = data;
             this.next = null;
         }
     }
     
-    public void push(int data){
+    public void push(int data, boolean atFirst, int position){
+        // if(position > 0 && position <= size) 
         Node newNode = new Node(data);
         System.out.println("Added");
         if(head == null){
+            head = newNode;
+            return;
+        }
+        if(atFirst){
+            newNode.next = head;
             head = newNode;
             return;
         }
@@ -28,6 +36,7 @@ class LL {
     
     public void printLL(){
         if(head == null) System.out.println("Linked list is empty");
+        
         Node index = head;
         while(index != null){
             System.out.print(index.data + "->");
@@ -60,7 +69,11 @@ class LL {
             switch(choice){
                 case 1:
                     System.out.print("Enter data : ");
-                    ll.push(sc.nextInt());
+                    ll.push(sc.nextInt(),false,-1);
+                    break;
+                case 2:
+                    System.out.println("Enter data : ");
+                    ll.push(sc.nextInt(),true,-1);
                     break;
                 case 8:
                     ll.printLL();
