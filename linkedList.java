@@ -57,6 +57,24 @@ class LL {
         index.next = newNode;
     }
     
+    public int pop(){
+        if(size == 1){
+            int temp = head.data;
+            head = null;
+            size--;
+            return temp;
+        }
+        Node index = head;
+        Node nextIndex = head.next;
+        while(nextIndex.next != null){
+            index = nextIndex;
+            nextIndex = nextIndex.next;
+        }
+        index.next = null;
+        size--;
+        return nextIndex.data;
+    }
+    
     public void printLL(){
         if(head == null) System.out.println("Linked list is empty");
         
@@ -111,6 +129,13 @@ class LL {
                     }
                     System.out.println("Enter data : ");
                     ll.push(sc.nextInt(),false,index);
+                    break;
+                case 4:
+                    if(ll.head == null){
+                        System.out.println("Linked list is empty");
+                        break;
+                    }
+                    System.out.println("Popped : " + ll.pop());
                     break;
                 case 8:
                     ll.printLL();
