@@ -83,6 +83,7 @@ class LL {
         }
         index.next = null;
         size--;
+        printLL();
         return nextIndex.data;
     }
     
@@ -96,6 +97,8 @@ class LL {
             return;
         }
         index.data = updated;
+        System.out.println("Updated");
+        printLL();
     }
     
     public void printLL(){
@@ -122,10 +125,9 @@ class LL {
             System.out.println("3) Push at specific index");
             System.out.println("4) Pop");
             System.out.println("5) Pop from first");
-            System.out.println("6) Pop specific index");
-            System.out.println("7) Update");
-            System.out.println("8) Print");
-            System.out.println("9) Exit");
+            System.out.println("6) Update");
+            System.out.println("7) Print");
+            System.out.println("8) Exit");
             System.out.println("-----------------------------");
             System.out.print("Enter your choice : ");
             choice = sc.nextInt();
@@ -161,7 +163,7 @@ class LL {
                         break;
                     System.out.println("Popped : " + ll.pop(true));
                     break;
-                case 7:
+                case 6:
                     if(ll.isEmpty())
                         break;
                     System.out.println("Enter original value : ");
@@ -169,10 +171,10 @@ class LL {
                     System.out.println("Enter updated value : ");
                     ll.update(original,sc.nextInt());
                     break;
-                case 8:
+                case 7:
                     ll.printLL();
                     break;
-                case 9:
+                case 8:
                     System.out.println("Goodbye");
                     flag = false;
                     break;
