@@ -15,7 +15,7 @@ class LL {
     }
     
     public boolean isEmpty(){
-        System.out.println("Linked list is empty");
+        if(head == null) System.out.println("Linked list is empty");
         return head != null ? false : true;
     } 
     
@@ -86,6 +86,18 @@ class LL {
         return nextIndex.data;
     }
     
+    public void update(int original, int updated){
+        Node index = head;
+        while(index != null && index.data != original){
+            index = index.next;
+        }
+        if(index == null){
+            System.out.println("Value not found");
+            return;
+        }
+        index.data = updated;
+    }
+    
     public void printLL(){
         if(head == null) System.out.println("Linked list is empty");
         
@@ -148,6 +160,14 @@ class LL {
                     if(ll.isEmpty())
                         break;
                     System.out.println("Popped : " + ll.pop(true));
+                    break;
+                case 7:
+                    if(ll.isEmpty())
+                        break;
+                    System.out.println("Enter original value : ");
+                    int original = sc.nextInt();
+                    System.out.println("Enter updated value : ");
+                    ll.update(original,sc.nextInt());
                     break;
                 case 8:
                     ll.printLL();
