@@ -14,6 +14,11 @@ class LL {
         }
     }
     
+    public boolean isEmpty(){
+        System.out.println("Linked list is empty");
+        return head != null ? false : true;
+    } 
+    
     public void push(int data, boolean atFirst, int position){
         Node newNode = new Node(data);
         System.out.println("Added");
@@ -126,10 +131,8 @@ class LL {
                     System.out.println("Enter index where you want to add : ");
                     int index = sc.nextInt();
                     if(index > ll.size){
-                        if(ll.head == null){
-                            System.out.println("Linked list is empty");
+                        if(ll.isEmpty())
                             break;
-                        }
                         System.out.println("Invalid index");
                         break;
                     }
@@ -137,17 +140,13 @@ class LL {
                     ll.push(sc.nextInt(),false,index);
                     break;
                 case 4:
-                    if(ll.head == null){
-                        System.out.println("Linked list is empty");
+                    if(ll.isEmpty())
                         break;
-                    }
                     System.out.println("Popped : " + ll.pop(false));
                     break;
                 case 5:
-                    if(ll.head == null){
-                        System.out.println("Linked list is empty");
+                    if(ll.isEmpty())
                         break;
-                    }
                     System.out.println("Popped : " + ll.pop(true));
                     break;
                 case 8:
