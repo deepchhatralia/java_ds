@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Queue {
+class queue_array {
     public static int size = 100;
     public static int count = -1;
     public static int arr[] = new int[size];
